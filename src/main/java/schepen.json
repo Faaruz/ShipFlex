@@ -1,0 +1,24 @@
+{
+  "speedboot": {
+      "frame":{
+        "FrameLang": 50000,
+        "FrameBasis": 25000,
+        "FrameKort": 18000
+      },
+      "motor":{
+        "MotorSterk": 50000,
+        "MotorBasis": 30000,
+        "MotorZuinig": 20000
+      },
+      "roer":{
+        "RoerGeavanceerd": 20000,
+        "RoerBasis": 10000,
+        "RoerPrimitief": 15000
+      },
+      "navigatiesysteem":{
+        "NavigatieSysteemGeavanceerd": 20000,
+        "NavigatieSysteemBasis": 40000,
+        "NavigatieSysteemPrimitief": 60000
+      }
+  }
+}
