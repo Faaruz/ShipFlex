@@ -1,8 +1,14 @@
 import javax.swing.text.html.Option;
+import java.io.File;
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
+import org.json.JSONStringer;
 
 class Banner {
     //ANSI SHADOW ASCII ART
@@ -89,12 +95,17 @@ class OfferteGenerator extends Banner {
     Map<String, String> dictionary = new HashMap<String, String>();
     Scanner scanner = new Scanner(System.in);
 
+   public  File file = new File("src/content.json");
+    public String content = FileUtils.readFileToString(file, "utf-8");
+
     double kosten;
     public String klantenGroep;
 
+    OfferteGenerator() throws IOException {
+    }
 
-    public void generateOfferte(){
 
+    public void generateOfferte() throws IOException {
         /**
          * Standaard vragen die worden gesteld in ELKE offerte.
          */
@@ -102,7 +113,19 @@ class OfferteGenerator extends Banner {
         System.out.println("ShipFLex Offerte generator (Admin):");
 
         System.out.println("Voornaam: ");
-        dictionary.put("Voornaam", scanner.nextLine());
+//        dictionary.put("Voornaam", scanner.nextLine());
+
+        // Convert JSON string to JSONObject
+        JSONObject json = new JSONObject(content);
+        JSONStringer jsonStringer = new JSONStringer();
+
+
+        json.put("Voornaam", scanner.nextLine());
+
+        FileUtils.write(file, json.toString(4));
+
+
+        System.out.println(json.toString(4));
 
         System.out.println("Achternaam: ");
         dictionary.put("Achternaam", scanner.nextLine());
@@ -214,7 +237,6 @@ class OfferteGenerator extends Banner {
     }
 
     public void printOfferte() {
-        System.out.println("\033[36mThis is cyanThis is cyanThis is cyanThis is cyanThis is cyanThis is cyanThis is cyanThis is cyanThis is cyan\033[0m");
         printBannerOfferte();
         System.out.println();
         System.out.println("1. Voornaam: " + dictionary.get("Voornaam"));
@@ -235,7 +257,7 @@ class OfferteGenerator extends Banner {
 }
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         Banner banner = new Banner();
         Home home = new Home();
         OfferteGenerator generator = new OfferteGenerator();
