@@ -1,0 +1,9 @@
+Frame;Prijs;Korting;Beschrijving
+FrameLang;50000;20;Een lang frame is tussen de 30 en 50 meter lang
+FrameBasis;25000;15;Een basis frame is tussen de 15 en 30 meter lang
+FrameKort;18000;10;Een kort frame is van 1 tot 15 meter lang
+;;
+Motor;Prijs;Korting;Beschrijving
+MotorSterk;50000;20;Een sterke motor is tussen de 100 en 500 pk
+MotorBasis;30000;15;Een basis motor is tussen de 20 en 100 pk
+MotorZuinig;20000;10;Een zuinige motor is tussen de 5 en 20 pk

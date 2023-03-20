@@ -2,10 +2,6 @@ import java.io.*;
 import java.util.*;
 import java.text.NumberFormat;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 /**
  * Alle Onderdelen van de verschillende schepen en de prijzen
  */
@@ -15,7 +11,7 @@ class Onderdelen{
     public void getOnderdelen(String onderdeel){
         try {
             // Scan de CSV(Excel) file
-            Scanner scanner = new Scanner(new File("src\\main\\java\\onderdelen.csv"));
+            Scanner scanner = new Scanner(new File("src/onderdelen.csv"));
 
             // Print de onderdelen uit de CSV-file
             System.out.println( onderdeel + " Parts:");
@@ -23,12 +19,12 @@ class Onderdelen{
             // Zie CSV-file om te zien hoe de data is opgeslagen
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                if (line.equals(onderdeel + ";Prijs;Korting")) {
+                if (line.equals(onderdeel + ";Prijs;Korting;Beschrijving")) {
                     while (scanner.hasNextLine()) {
                         line = scanner.nextLine();
                         if (line.startsWith(onderdeel)) {
                             String[] values = line.split(";");
-                            System.out.println(values[0] + ": " + "€" + values[1] + " korting (Indien van toepassing): " + values[2]);
+                            System.out.println(values[0] + ": " + "€" + values[1] + " korting (Indien van toepassing): " + values[2] + "% " + "Beschrijving: " + values[3]);
                         } else {
                             break;
                         }
@@ -105,7 +101,7 @@ class Startup {
     public static final String ANSI_RESET = "\u001B[0m";
 
 
-    public void askAdmin() throws IOException, ParseException {
+    public void askAdmin() throws IOException {
         Admin admin = new Admin();
         Klant klant = new Klant();
         System.out.println();
@@ -177,7 +173,7 @@ class Klant {
     /**
      * Klant menu printen
      */
-    public void printKlantMenu() throws IOException, ParseException {
+    public void printKlantMenu() throws IOException {
         System.out.println("1. Offerte aanmaken");
         System.out.println("2. Offerte bekijken");
         System.out.println("13. Uitloggen");
@@ -200,7 +196,7 @@ class Klant {
     /**
      * Vraagt de klant om zijn type te selecteren en slaat het op in klantType
      */
-    public void setKlantType() throws IOException, ParseException {
+    public void setKlantType() throws IOException {
         System.out.println("Kies uw klanttype: ");
         System.out.println("1. Particulier");
         System.out.println("2. Zakelijk");
@@ -234,7 +230,7 @@ class Klant {
      * Basis Informatie van de klant wordt hier opgevraagd
      * Check voor het klanttype wordt hier gedaan
      */
-    public void setGegevens() throws IOException, ParseException {
+    public void setGegevens() throws IOException {
         Scanner scanner = new Scanner(System.in);
         HashMap<String, String> gegevens = new HashMap<>();
         System.out.println("Voornaam: ");
@@ -243,8 +239,6 @@ class Klant {
         gegevens.put("Achternaam", scanner.nextLine());
         System.out.println("Email: ");
         gegevens.put("Email", scanner.nextLine());
-        System.out.println("Bedrijf: ");
-        gegevens.put("Bedrijf", scanner.nextLine());
         System.out.println("Telefoonnummer: ");
         gegevens.put("Telefoonnummer", scanner.nextLine());
 
@@ -266,7 +260,7 @@ class Klant {
     /**
      * Stel het type schip in voor de offerte
      */
-    public void setSchipType() throws IOException, ParseException {
+    public void setSchipType() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Kies uw schip type: ");
         System.out.println("1. Speedboot");
@@ -296,10 +290,10 @@ class Klant {
      *
      */
 
-    public void essentieleOpties() throws IOException, ParseException {
+    public void essentieleOpties() throws IOException {
         Onderdelen onderdelen = new Onderdelen();
         Scanner scanner = new Scanner(System.in);
-        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+//        NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
         switch (schip){
             case "speedboot":
@@ -334,7 +328,7 @@ class Klant {
 
 
 class Main {
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws IOException {
         Banner banner = new Banner();
         Startup startup = new Startup();
         banner.printBannerLogo();
