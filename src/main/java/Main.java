@@ -7,6 +7,48 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
+ * Alle Onderdelen van de verschillende schepen en de prijzen
+ */
+class Onderdelen{
+    public String onderdeel;
+
+    public void getOnderdelen(String onderdeel){
+        try {
+            // Scan de CSV(Excel) file
+            Scanner scanner = new Scanner(new File("src\\main\\java\\onderdelen.csv"));
+
+            // Print de onderdelen uit de CSV-file
+            System.out.println( onderdeel + " Parts:");
+            // Gaat elke line langs CSV-file en leest of onderdeel + ";Prijs;Korting" overeenkomt
+            // Zie CSV-file om te zien hoe de data is opgeslagen
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.equals(onderdeel + ";Prijs;Korting")) {
+                    while (scanner.hasNextLine()) {
+                        line = scanner.nextLine();
+                        if (line.startsWith(onderdeel)) {
+                            String[] values = line.split(";");
+                            System.out.println(values[0] + ": " + "€" + values[1] + " korting (Indien van toepassing): " + values[2]);
+                        } else {
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setOnderdeel(String onderdeel) {
+        this.onderdeel = onderdeel;
+    }
+}
+
+
+/**
  * Vaak gebruikte print statements zoals banners(Logo) en dividers
  */
 class Banner {
@@ -244,8 +286,6 @@ class Klant {
                 banner.printDivider();
             }
         }
-
-
     }
 
 
@@ -257,11 +297,9 @@ class Klant {
      */
 
     public void essentieleOpties() throws IOException, ParseException {
+        Onderdelen onderdelen = new Onderdelen();
         Scanner scanner = new Scanner(System.in);
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(new FileReader("src/main/java/schepen.json"));
-        JSONObject schepen = (JSONObject) jsonObject.get("speedboot");
 
         switch (schip){
             case "speedboot":
@@ -274,12 +312,18 @@ class Klant {
                 System.out.println("Maak een keuze: ");
                 switch (scanner.nextInt()){
                     case 1:
-                        schipOptie = "frame";
-                        JSONObject opties = (JSONObject) schepen.get(schipOptie);
-                        banner.printDivider();
+                        schipOptie = "Frame";
+                        onderdelen.setOnderdeel(schipOptie);
                         System.out.println(ANSI_RED + "Frame geselecteerd" + ANSI_RESET);
-                        opties.forEach((k, v) -> System.out.println(k + " " + formatter.format(v)));
                         banner.printDivider();
+                        onderdelen.getOnderdelen(schipOptie);
+                        break;
+                    case 2:
+                        schipOptie = "Motor";
+                        onderdelen.setOnderdeel(schipOptie);
+                        System.out.println(ANSI_RED + "Motor geselecteerd" + ANSI_RESET);
+                        banner.printDivider();
+                        onderdelen.getOnderdelen(schipOptie);
                         break;
                 }
                 break;
