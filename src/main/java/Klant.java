@@ -12,7 +12,11 @@ class Klant {
     Banner banner = new Banner();
     public String klantType;
 
-    Schip schip = new Schip();
+    String schipType;
+
+//    String schipBeschrijving;
+
+    Schip schip = new Schip(schipType);
 
     /**
      * Klant menu printen
@@ -97,7 +101,16 @@ class Klant {
         System.out.println(ANSI_RED + gegevens + ANSI_RESET);
 
         banner.printDivider();
-        schip.setSchipType();
+        Onderdeel frame = new Frame("Frame", "frame van het schip", 1000, 0.10, 10, 5);
+        Onderdeel motor = new Motor("Motor", "motor van het schip", 1000, 0.05, 100);
+        Onderdeel roer = new Roer("Roer", "roer van het schip", 1000,10);
+        Onderdeel onderdelen = new Onderdeel("Onderdelen", "Onderdelen van het schip", 0);
+        onderdelen.addOnderdeel(frame);
+        onderdelen.addOnderdeel(motor);
+        onderdelen.addOnderdeel(roer);
+
+        onderdelen.printOnderdelen();
+
 
     }
 }
