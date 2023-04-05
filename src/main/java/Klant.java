@@ -20,7 +20,7 @@ class Klant {
     public void printKlantMenu() throws IOException {
         System.out.println("1. Offerte aanmaken");
         System.out.println("2. Offerte bekijken");
-        System.out.println("13. Uitloggen");
+        System.out.println("3. Uitloggen");
         banner.printDivider();
         System.out.println("Maak een keuze: ");
 
@@ -44,6 +44,7 @@ class Klant {
         System.out.println("Kies uw klanttype: ");
         System.out.println("1. Particulier");
         System.out.println("2. Zakelijk");
+        System.out.println("3. Overheid");
         banner.printDivider();
         System.out.println("Maak een keuze: ");
         switch (scanner.nextInt()) {
@@ -57,6 +58,12 @@ class Klant {
             case 2 -> {
                 klantType = "Zakelijk";
                 //DEBUG
+                System.out.println(ANSI_RED + klantType + " Account Ingesteld" + ANSI_RESET);
+                banner.printDivider();
+                setGegevens();
+            }
+            case 3 -> {
+                klantType = "Overheid";
                 System.out.println(ANSI_RED + klantType + " Account Ingesteld" + ANSI_RESET);
                 banner.printDivider();
                 setGegevens();
@@ -89,9 +96,12 @@ class Klant {
         if (klantType.equals("Zakelijk")) {
             System.out.println("Bedrijfsnaam: ");
             gegevens.put("Bedrijfsnaam", scanner.nextLine());
+        }
+        if (klantType.equals("Overheid")) {
             System.out.println("Ministerie: ");
             gegevens.put("Ministerie", scanner.nextLine());
         }
+
 
         //DEBUG
         System.out.println(ANSI_RED + gegevens + ANSI_RESET);
