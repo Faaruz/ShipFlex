@@ -47,7 +47,9 @@ public class Onderdeel {
             System.out.println("Onderdeel naam: " + onderdeel.getNaam());
             System.out.println("Onderdeel beschrijving: " + onderdeel.getBeschrijving());
             System.out.println("Onderdeel prijs: " + onderdeel.getPrijs());
-            System.out.println("Onderdeel korting: (als aanwezig) " + onderdeel.getKorting());
+            if (onderdeel.getKorting() > 0) {
+                System.out.println("Onderdeel korting: " + onderdeel.getKorting() * 100 + "%");
+            }
             if(onderdeel instanceof Frame) {
                 System.out.println("Hoogte frame: " + ((Frame) onderdeel).getHoogte());
                 System.out.println("Breedte frame: "+ ((Frame) onderdeel).getBreedte());
