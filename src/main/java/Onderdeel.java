@@ -38,6 +38,23 @@ public class Onderdeel {
         return korting;
     }
 
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+
+    public void setBeschrijving(String beschrijving) {
+        this.beschrijving = beschrijving;
+    }
+
+    public void setPrijs(double prijs) {
+        this.prijs = prijs;
+    }
+
+    public void setKorting(double korting) {
+        this.korting = korting;
+    }
+
+
     public void addOnderdeel(Onderdeel onderdeel) {
         onderdelen.add(onderdeel);
     }
