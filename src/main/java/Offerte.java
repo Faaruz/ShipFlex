@@ -20,7 +20,7 @@ public class Offerte {
         System.out.println("Offerte voor: " + klant.getNaam() + " " + klant.getAchternaam());
         System.out.println("Emailadres: " + klant.getEmail());
         System.out.println("Telefoonnummer: " + klant.getTelefoonNummer());
-        if(klant.getKlantType().equals("Zakelijk")) {
+        if (klant.getKlantType().equals("Zakelijk")) {
             System.out.println("Bedrijf: " + klant.getBedrijfsnaam());
         } else if (klant.getKlantType().equals("Overheid")) {
             System.out.println("Overheid: " + klant.getOverheid());
@@ -34,29 +34,38 @@ public class Offerte {
             Onderdeel onderdeelItem = gekozenOnderdelen.get(i);
             double onderdeelPrijs = onderdeelItem.getPrijs();
             totaalPrijs += onderdeelPrijs;
-            System.out.println((i+1) + ". " + onderdeelItem.getNaam() + " - " +  "Prijs " + onderdeelPrijs + " Korting €" + (onderdeelPrijs * (gekozenOnderdelen.get(i).getMilieuKorting() / 100))
+            System.out.println((i + 1) + ". " + onderdeelItem.getNaam() + " - " + "Prijs " + onderdeelPrijs + " Korting €" + (onderdeelPrijs * (gekozenOnderdelen.get(i).getMilieuKorting() / 100))
                     + " - " + "Totale Prijs " + (onderdeelPrijs - (onderdeelPrijs * (gekozenOnderdelen.get(i).getMilieuKorting() / 100))));
         }
 
         banner.printDivider();
-        // Op deze regel moet de klant korting aftrokken worden van de totaalprijs
-        if(klant.getKlantType().equals("Particulier")) {
-            System.out.println("Prijs na aftrek klant korting: " + (totaalPrijs -(totaalPrijs * (Particulier.getKorting()/100))));
-        }
-        else if(klant.getKlantType().equals("Zakelijk")) {
-            System.out.println("Prijs na aftrek klant korting: " + ((totaalPrijs -(totaalPrijs * (Zakelijk.getKorting())))));
-        }
-        else if(klant.getKlantType().equals("Overheid")) {
-            System.out.println("Prijs na aftrek klant korting: " + (totaalPrijs / Overheid.getKorting()));
-        }
-        else if(klant.getKlantType().equals(NieuwKlantType.getNieuwKlantTypeNaam())) {
-            System.out.println("Prijs na aftrek klant korting: " + (totaalPrijs / Overheid.getKorting()));
+        System.out.println("De totaalprijs voor aftrek klant korting: " + totaalPrijs);
+        double prijsNaKorting = 0;
+        if (klant.getKlantType().equals("Particulier")) {
+            double korting = Particulier.getKorting();
+            prijsNaKorting = totaalPrijs - (totaalPrijs * (korting / 100));
+            totaalPrijs = prijsNaKorting;
+            System.out.println("Prijs na aftrek klant korting: " + prijsNaKorting);
+        } else if (klant.getKlantType().equals("Zakelijk")) {
+            double korting = Zakelijk.getKorting();
+            prijsNaKorting = totaalPrijs - (totaalPrijs * (korting / 100));
+            totaalPrijs = prijsNaKorting;
+            System.out.println("Prijs na aftrek klant korting: " + prijsNaKorting);
+        } else if (klant.getKlantType().equals("Overheid")) {
+            double korting = Overheid.getKorting();
+            prijsNaKorting = totaalPrijs - (totaalPrijs * (korting / 100));
+            totaalPrijs = prijsNaKorting;
+            System.out.println("Prijs na aftrek klant korting: " + prijsNaKorting);
+        } else if (klant.getKlantType().equals(NieuwKlantType.getNieuwKlantTypeNaam())) {
+            double korting = NieuwKlantType.getKorting();
+            prijsNaKorting = totaalPrijs - (totaalPrijs * (korting / 100));
+            totaalPrijs = prijsNaKorting;
+            System.out.println("Prijs na aftrek klant korting: " + prijsNaKorting);
         }
 
 
-        System.out.println("Prijs zonder BTW: " + (totaalPrijs * 0.80));
+        System.out.println("Prijs zonder BTW: " + (prijsNaKorting * 0.80));
 
-        System.out.println("Totaalprijs: " + totaalPrijs);
 
     }
 
