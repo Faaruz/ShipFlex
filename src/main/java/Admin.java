@@ -5,8 +5,6 @@ import java.util.Scanner;
  */
 public class Admin {
 
-    private HulpMenu AdminHulpMenu;
-
     public static void wijzigPrijs(){
 
     }
