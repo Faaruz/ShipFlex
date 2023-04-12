@@ -16,7 +16,7 @@ class Main {
         String naam, achternaam, email;
         int telefoonNummer;
         String bedrijf, overheidNaam;
-        System.out.printf("Selecteer klanttype: %n1: Particulier%n2: Zakelijk%n3: Overheid%n4: Custom KlantType%n");
+        System.out.printf("Selecteer klanttype: %n1: Particulier%n2: Zakelijk%n3: Overheid%n4: %s %n", NieuwKlantType.getNieuwKlantTypeNaam());
 
         switch (scanner.nextLine()) {
             case "1":
@@ -40,7 +40,7 @@ class Main {
                 System.out.println("Voer uw telefoonnummer in:");
                 telefoonNummer = scanner.nextInt();
                 System.out.println("Voer de naam van uw bedrijf in:");
-                scanner.nextLine(); // consume the remaining new line character
+                scanner.nextLine();
                 bedrijf = scanner.nextLine();
                 Zakelijk zakelijk = new Zakelijk(naam, achternaam, email, telefoonNummer, bedrijf, null);
                 break;
@@ -54,13 +54,13 @@ class Main {
                 System.out.println("Voer uw telefoonnummer in:");
                 telefoonNummer = scanner.nextInt();
                 System.out.println("Voer de naam van uw overheid in:");
-                scanner.nextLine(); // consume the remaining new line character
+                scanner.nextLine();
                 overheidNaam = scanner.nextLine();
                 Overheid overheid = new Overheid(naam, achternaam, email, telefoonNummer, overheidNaam, null);
                 break;
             case "4":
                 if (NieuwKlantType.getNieuwKlantTypeBestaat()) {
-                    System.out.println("Voer uw voornaam in:");
+                    System.out.printf("Welkom %s, voer uw voornaam in:", NieuwKlantType.getNieuwKlantTypeNaam());
                     naam = scanner.nextLine();
                     System.out.println("Voer uw achternaam in:");
                     achternaam = scanner.nextLine();
