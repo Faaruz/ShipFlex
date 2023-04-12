@@ -33,7 +33,7 @@ class Startup {
                 //debug
                 System.out.println(ANSI_RED + "Ingelogd als klant" + ANSI_RESET);
                 banner.printDivider();
-                //klant.printKlantMenu();
+                Main.printKlantOpties();
                 break;
             case 13:
                 //debug

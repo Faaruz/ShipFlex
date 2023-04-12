@@ -25,7 +25,7 @@ public class Offerte {
         } else if (klant.getKlantType().equals("Overheid")) {
             System.out.println("Overheid: " + klant.getOverheid());
         }
-        System.out.println("Gekozen Schip: " + "Gekozen Schip");
+        System.out.println("Gekozen Schip: " + "Speedboot");
         banner.printDivider();
         System.out.println("Onderdelen:");
 

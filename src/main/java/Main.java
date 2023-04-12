@@ -3,14 +3,16 @@ import java.util.Scanner;
 
 class Main {
     static Klant klant;
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    static Banner banner = new Banner();
+
 
 
     public static void main(String[] args) throws IOException {
-        Banner banner = new Banner();
         Startup startup = new Startup();
         banner.printBannerLogo();
         startup.askAdmin();
-        printKlantOpties();
         printSchipOpties();
     }
 
@@ -19,7 +21,7 @@ class Main {
         String naam, achternaam, email;
         int telefoonNummer;
         String bedrijf, overheidNaam;
-        System.out.printf("Selecteer klanttype: %n1: Particulier%n2: Zakelijk%n3: Overheid%n4: %s %n", NieuwKlantType.getNieuwKlantTypeNaam());
+        System.out.printf(ANSI_RED + "Selecteer klanttype: " + ANSI_RESET + " %n1: Particulier%n2: Zakelijk%n3: Overheid%n4: %s %n", NieuwKlantType.getNieuwKlantTypeNaam());
 
         switch (scanner.nextLine()) {
             case "1":
@@ -89,25 +91,26 @@ class Main {
     }
     private static void printSchipOpties(){
         Scanner scanner = new Scanner(System.in);
-
-        System.out.printf("Selecteer schiptype:%n1: SpeedBoot%n");
+        Onderdeel onderdelen = new Onderdeel();
+        System.out.printf(ANSI_RED + "Selecteer schiptype: "+ ANSI_RESET + "%n1: SpeedBoot%n");
         if(scanner.nextLine().equals("1")){
-            //SpeedBoot speedBoot = new SpeedBoot(null, null);
+            banner.printDivider();
             printSpeedbootOpties();
             printNietEssentieleOpties();
+            Offerte offerte = new Offerte(klant, onderdelen.getOnderdelen());
+            offerte.printOfferte();
         }
     }
 
     private static void printSpeedbootOpties(){
         Onderdeel onderdelen = new Onderdeel();
-        System.out.println("Kies essentiele opties: ");
+        System.out.println(ANSI_RED + "Kies essentiele opties: " + ANSI_RESET);
         onderdelen.printOnderdelen();
-        Offerte offerte = new Offerte(klant, onderdelen.getOnderdelen());
-        offerte.printOfferte();
     }
 
     private static void printNietEssentieleOpties() {
         Onderdeel onderdeel = new Onderdeel();
         System.out.println("Kies niet essentiele opties: ");
+        onderdeel.printNietEssentieleOnderdelen();
     }
 }
