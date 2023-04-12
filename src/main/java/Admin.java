@@ -37,11 +37,11 @@ public class Admin {
                 System.out.printf("De korting voor overheid is gewijzigd naar: %d%n", Overheid.getKorting());
                 break;
             case 4:
-                System.out.printf("De korting voor %s is op dit moment: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), Overheid.getKorting());
+                System.out.printf("De korting voor %s is op dit moment: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
                 System.out.printf("Voer een nieuwe korting in voor %s:", NieuwKlantType.getNieuwKlantTypeNaam());
                 int nieuweKortingNieuwKlantType = scanner.nextInt();
                 NieuwKlantType.setKorting(nieuweKortingNieuwKlantType);
-                System.out.printf("De korting voor %s is gewijzigd naar: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), Overheid.getKorting());
+                System.out.printf("De korting voor %s is gewijzigd naar: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
                 break;
             case 5:
                 System.out.println("U bent terug gebracht naar het admin menu");
