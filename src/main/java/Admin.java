@@ -39,7 +39,7 @@ public class Admin {
 
         // Print the updated price of the selected Onderdeel
         System.out.printf("De prijs voor %s is gewijzigd naar: %s", selectedOnderdeel.getNaam(), selectedOnderdeel.getPrijs());
-
+        System.out.println();
         printAdminMenu();
     }
 
