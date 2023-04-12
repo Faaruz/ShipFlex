@@ -29,7 +29,7 @@ public class Admin {
 
         // Print the current price of the selected Onderdeel
         System.out.printf("De prijs voor %s is op dit moment: %s", selectedOnderdeel.getNaam(), selectedOnderdeel.getPrijs());
-        System.out.println("");
+        System.out.println();
         // Prompt the user to enter a new price for the selected Onderdeel
         System.out.printf("Voer een nieuwe prijs in voor %s:%n", selectedOnderdeel.getNaam());
         int nieuwePrijs = scanner.nextInt();

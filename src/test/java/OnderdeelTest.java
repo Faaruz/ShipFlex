@@ -27,7 +27,6 @@ class OnderdeelTest {
         assert (motor.getKorting() == 0.1);
         motor.setKorting(0.2);
         assert (motor.getKorting() == 0.2);
-        assert (motor.getKorting() >= 0.3);
         assert(frame.getNaam().equals("basisFrame"));
         assert(frame.getBeschrijving().equals("frame van het schip"));
         assert(frame.getPrijs() == 10000.0);
