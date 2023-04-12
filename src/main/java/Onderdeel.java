@@ -1,6 +1,9 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Onderdeel {
+
+    Banner banner = new Banner();
     private String naam;
     private String beschrijving;
     private double prijs;
@@ -74,12 +77,13 @@ public class Onderdeel {
     }
 
     public void printOnderdelen() {
+        Scanner scanner = new Scanner(System.in);
         for (Onderdeel onderdeel : onderdelen) {
             System.out.println("Onderdeel naam: " + onderdeel.getNaam());
             System.out.println("Onderdeel beschrijving: " + onderdeel.getBeschrijving());
             System.out.println("Onderdeel prijs: " + onderdeel.getPrijs());
             if (onderdeel.getKorting() > 0) {
-                System.out.println("Onderdeel korting: " + onderdeel.getKorting() * 100 + "%");
+                System.out.println("Onderdeel korting: " + onderdeel.getKorting() + "%");
             }
             if(onderdeel instanceof Frame) {
                 System.out.println("Hoogte frame: " + ((Frame) onderdeel).getHoogte());
@@ -90,6 +94,17 @@ public class Onderdeel {
             }
             if(onderdeel instanceof Roer) {
                 System.out.println("Roer draaivermogen: " + ((Roer) onderdeel).getDraaivermogen());
+            }
+
+            System.out.println("Type 'm' om een milieuvriendelijke optie te selecteren");
+
+            String input = scanner.nextLine();
+            if (input.equals("m")) {
+                System.out.println(onderdeel.naam +" toegevoegd aan Schip");
+                banner.printDivider();
+            } else {
+                System.out.println(onderdeel.naam + " toegevoegd aan Schip");
+                banner.printDivider();
             }
         }
     }

@@ -25,4 +25,28 @@ class Particulier extends Klant{
     @Override
     void setBedrijfsnaam(String string) {
     }
+    @Override
+    public String getNaam() {
+        return super.getNaam();
+    }
+
+    @Override
+    public String getAchternaam() {
+        return super.getAchternaam();
+    }
+
+    @Override
+    public String getEmail() {
+        return super.getEmail();
+    }
+
+    @Override
+    public Integer getTelefoonNummer() {
+        return super.getTelefoonNummer();
+    }
+
+    @Override
+    public Schip getSchip() {
+        return super.getSchip();
+    }
 }

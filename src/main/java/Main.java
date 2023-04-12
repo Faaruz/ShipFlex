@@ -2,6 +2,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 class Main {
+    static Klant klant;
+
+
     public static void main(String[] args) throws IOException {
         Banner banner = new Banner();
         Startup startup = new Startup();
@@ -28,7 +31,7 @@ class Main {
                 email = scanner.nextLine();
                 System.out.println("Voer uw telefoonnummer in:");
                 telefoonNummer = scanner.nextInt();
-                Particulier particulier = new Particulier(naam, achternaam, email, telefoonNummer, null);
+                klant = new Particulier(naam, achternaam, email, telefoonNummer, null);
                 break;
             case "2":
                 System.out.println("Voer uw voornaam in:");
@@ -42,7 +45,7 @@ class Main {
                 System.out.println("Voer de naam van uw bedrijf in:");
                 scanner.nextLine();
                 bedrijf = scanner.nextLine();
-                Zakelijk zakelijk = new Zakelijk(naam, achternaam, email, telefoonNummer, bedrijf, null);
+                klant = new Zakelijk(naam, achternaam, email, telefoonNummer, bedrijf, null);
                 break;
             case "3":
                 System.out.println("Voer uw voornaam in:");
@@ -56,7 +59,7 @@ class Main {
                 System.out.println("Voer de naam van uw overheid in:");
                 scanner.nextLine();
                 overheidNaam = scanner.nextLine();
-                Overheid overheid = new Overheid(naam, achternaam, email, telefoonNummer, overheidNaam, null);
+                klant = new Overheid(naam, achternaam, email, telefoonNummer, overheidNaam, null);
                 break;
             case "4":
                 if (NieuwKlantType.getNieuwKlantTypeBestaat()) {
@@ -69,7 +72,7 @@ class Main {
                     email = scanner.nextLine();
                     System.out.println("Voer uw telefoonnummer in:");
                     telefoonNummer = scanner.nextInt();
-                    NieuwKlantType customKlantType = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null, 10);
+                    klant = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null, 10);
                 } else {
                     System.out.println("Er bestaat nog geen Custom KlantType. Als u admin privileges hebt kunt u Custom KlantTypes aanmaken in het admin menu.");
                     printKlantOpties();
@@ -94,5 +97,7 @@ class Main {
         Onderdeel onderdelen = new Onderdeel();
         System.out.println("Kies essentiele opties: ");
         onderdelen.printOnderdelen();
+        Offerte offerte = new Offerte(klant, onderdelen.getOnderdelen());
+        offerte.printOfferte();
     }
 }
