@@ -11,7 +11,6 @@ public class Admin {
 
     }
 
-//    public NieuwKlantType nieuwKlantType = new NieuwKlantType("Nieuw", "Klanttype", "test@gmail.com", 0 , null, 10);
     public void wijzigKorting(){
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Selecteer het klanttype waarvan u de korting wil wijzigen: %n1: Particulier%n2: Zakelijk%n3: Overheid%n4: %s %n5: Klaar%n", NieuwKlantType.getNieuwKlantTypeNaam());
@@ -73,8 +72,19 @@ public class Admin {
         Admin admin = new Admin();
         admin.printAdminMenu();
     }
-    public static void voegOptiesToe(){
+    public static void voegOnderdeelToe(){
+        System.out.println("Voer de naam van het nieuwe onderdeel in:");
+        Scanner scanner = new Scanner(System.in);
+        String naam = scanner.nextLine();
+        System.out.println("Voer de beschrijving van het nieuwe onderdeel in:");
+        String beschrijving = scanner.nextLine();
+        System.out.println("Voer de prijs van het nieuwe onderdeel in:");
+        Double prijs = scanner.nextDouble();
+        System.out.println("Voer korting van het nieuwe onderdeel in:");
+        Double korting = scanner.nextDouble();
 
+        Onderdeel nieuwOnderdeel = new Onderdeel(naam, beschrijving, prijs, korting);
+        Onderdeel.onderdelen.add(nieuwOnderdeel);
     }
     Banner banner = new Banner();
     public void printAdminMenu(){
@@ -95,7 +105,7 @@ public class Admin {
                 voegNieuwKlantTypeToe();
                 break;
             case "3":
-                voegOptiesToe();
+                voegOnderdeelToe();
                 break;
             case "4":
                 wijzigKorting();

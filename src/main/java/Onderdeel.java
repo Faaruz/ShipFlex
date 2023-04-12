@@ -5,13 +5,13 @@ public class Onderdeel {
     private String beschrijving;
     private double prijs;
     private double korting;
-    private ArrayList<Onderdeel> onderdelen;
+    public static ArrayList<Onderdeel> onderdelen = new ArrayList<>();
 
     Onderdeel(String naam, String beschrijving, double prijs) {
         this.naam = naam;
         this.beschrijving = beschrijving;
         this.prijs = prijs;
-        this.onderdelen = new ArrayList<Onderdeel>();
+//        this.onderdelen = new ArrayList<Onderdeel>();
     }
 
     Onderdeel (String naam, String beschrijving, double prijs, double korting) {
@@ -19,7 +19,11 @@ public class Onderdeel {
         this.beschrijving = beschrijving;
         this.prijs = prijs;
         this.korting = korting;
-        this.onderdelen = new ArrayList<Onderdeel>();
+//        this.onderdelen = new ArrayList<Onderdeel>();
+    }
+
+    public Onderdeel() {
+
     }
 
     public String getNaam() {

@@ -91,7 +91,8 @@ class Main {
     }
 
     private static void printSpeedbootOpties(){
+        Onderdeel onderdelen = new Onderdeel();
         System.out.println("Kies essentiele opties: ");
-
+        onderdelen.printOnderdelen();
     }
 }
