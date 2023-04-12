@@ -1,7 +1,7 @@
 public class NieuwKlantType extends Klant{
     private String naamType;
 
-    private static Integer korting = null;
+    private static Integer korting = 0;
     private static String NieuwKlantTypeNaam= "Custom KlantType";
     private static boolean NieuwKlantTypeBestaat=false;
     public NieuwKlantType(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip) {
