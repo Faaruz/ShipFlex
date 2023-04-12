@@ -5,6 +5,15 @@ class Overheid extends Klant{
         super(naam, achternaam, email, telefoonNummer, schip);
         this.overheid = overheid;
     }
+
+    public static Integer getKorting() {
+        return korting;
+    }
+
+    public static void setKorting(Integer korting) {
+        Overheid.korting = korting;
+    }
+
     @Override
     String getOverheid() {
         return overheid;
