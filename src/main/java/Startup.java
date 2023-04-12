@@ -13,7 +13,7 @@ class Startup {
 
     public void askAdmin() throws IOException {
         Admin admin = new Admin();
-        //Klant klant = new Klant();
+        Klant klant = new Klant();
         System.out.println();
         System.out.println("Inloggen als Admin of Klant: ");
         System.out.println("1. Admin");
@@ -33,7 +33,7 @@ class Startup {
                 //debug
                 System.out.println(ANSI_RED + "Ingelogd als klant" + ANSI_RESET);
                 banner.printDivider();
-                //klant.printKlantMenu();
+                klant.printKlantMenu();
                 break;
             case 13:
                 //debug
