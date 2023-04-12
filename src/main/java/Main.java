@@ -90,6 +90,7 @@ class Main {
         if(scanner.nextLine().equals("1")){
             //SpeedBoot speedBoot = new SpeedBoot(null, null);
             printSpeedbootOpties();
+            printNietEssentieleOpties();
         }
     }
 
@@ -99,5 +100,10 @@ class Main {
         onderdelen.printOnderdelen();
         Offerte offerte = new Offerte(klant, onderdelen.getOnderdelen());
         offerte.printOfferte();
+    }
+
+    private static void printNietEssentieleOpties() {
+        Onderdeel onderdeel = new Onderdeel();
+        System.out.println("Kies niet essentiele opties: ");
     }
 }

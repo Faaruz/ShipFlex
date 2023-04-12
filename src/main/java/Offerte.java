@@ -5,6 +5,8 @@ public class Offerte {
     private Klant klant;
     private ArrayList<Onderdeel> onderdeel;
 
+    public static ArrayList<Onderdeel> gekozenOnderdelen = new ArrayList<Onderdeel>();
+
     public Offerte(Klant klant, ArrayList<Onderdeel> onderdeel) {
         this.klant = klant;
         this.onderdeel = onderdeel;
@@ -26,12 +28,12 @@ public class Offerte {
         System.out.println("Onderdelen:");
 
         double totaalPrijs = 0.0;
-        for (int i = 0; i < onderdeel.size(); i++) {
-            Onderdeel onderdeelItem = onderdeel.get(i);
+        for (int i = 0; i < gekozenOnderdelen.size(); i++) {
+            Onderdeel onderdeelItem = gekozenOnderdelen.get(i);
             double onderdeelPrijs = onderdeelItem.getPrijs();
             totaalPrijs += onderdeelPrijs;
-            System.out.println((i+1) + ". " + onderdeelItem.getNaam() + " - " +  "Prijs " + onderdeelPrijs + " Korting €" + (onderdeelPrijs * (onderdeel.get(i).getKorting() / 100))
-                    + " - " + "Totale Prijs " + (onderdeelPrijs - (onderdeelPrijs * (onderdeel.get(i).getKorting() / 100))));
+            System.out.println((i+1) + ". " + onderdeelItem.getNaam() + " - " +  "Prijs " + onderdeelPrijs + " Korting €" + (onderdeelPrijs * (gekozenOnderdelen.get(i).getMilieuKorting() / 100))
+                    + " - " + "Totale Prijs " + (onderdeelPrijs - (onderdeelPrijs * (gekozenOnderdelen.get(i).getMilieuKorting() / 100))));
         }
 
         banner.printDivider();

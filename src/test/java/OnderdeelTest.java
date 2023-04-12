@@ -15,8 +15,8 @@ class OnderdeelTest {
         frame.setPrijs(200);
         Assertions.assertEquals(200, frame.getPrijs(), 0.001);
 
-        frame.setKorting(20);
-        Assertions.assertEquals(20, frame.getKorting(), 0.001);
+        frame.setMilieuKorting(20);
+        Assertions.assertEquals(20, frame.getMilieuKorting(), 0.001);
     }
 
     @Test
@@ -24,13 +24,13 @@ class OnderdeelTest {
         Onderdeel frame = new Frame("basisFrame", "frame van het schip", 10000.0,  100, 1000);
         Onderdeel motor = new Motor("basisMotor", "motor van het schip", 10000.0, 0.1,   100);
         assert (motor.getNaam().equals("basisMotor"));
-        assert (motor.getKorting() == 0.1);
-        motor.setKorting(0.2);
-        assert (motor.getKorting() == 0.2);
+        assert (motor.getMilieuKorting() == 0.1);
+        motor.setMilieuKorting(0.2);
+        assert (motor.getMilieuKorting() == 0.2);
         assert(frame.getNaam().equals("basisFrame"));
         assert(frame.getBeschrijving().equals("frame van het schip"));
         assert(frame.getPrijs() == 10000.0);
-        assert(frame.getKorting() == 0.0);
+        assert(frame.getMilieuKorting() == 0.0);
         assert(frame instanceof Frame);
         assert(((Frame) frame).getHoogte() == 100);
         assert(((Frame) frame).getBreedte() == 1000);
