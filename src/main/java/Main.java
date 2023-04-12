@@ -110,7 +110,7 @@ class Main {
 
     private static void printNietEssentieleOpties() {
         Onderdeel onderdeel = new Onderdeel();
-        System.out.println("Kies niet essentiele opties: ");
+        System.out.println(ANSI_RED + "Kies niet essentiele opties: " + ANSI_RESET);
         onderdeel.printNietEssentieleOnderdelen();
     }
 }

@@ -154,10 +154,6 @@ public class Onderdeel {
         boolean done = false;
         while (!done) {
             for (List<Onderdeel> onderdelenPerTypeList : onderdelenPerType.values()) {
-                Onderdeel eersteOnderdeel = onderdelenPerTypeList.get(0);
-                String eersteOnderdeelType = eersteOnderdeel instanceof Frame ? "Frame" : eersteOnderdeel instanceof Motor ? "Motor" : eersteOnderdeel instanceof Roer ? "Roer" : "Onderdeel";
-                System.out.println("Onderdeel type: " + eersteOnderdeelType);
-
                 int index = 1;
                 for (Onderdeel onderdeel : onderdelenPerTypeList) {
                     System.out.println(index + ". " + onderdeel.getNaam() + " €" + onderdeel.getPrijs());
