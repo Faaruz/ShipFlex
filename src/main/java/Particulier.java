@@ -1,13 +1,12 @@
 class Particulier extends Klant{
-    public static Integer getKorting() {
+    public static Double korting = 5.0;
+    public static Double getKorting() {
         return korting;
     }
 
-    public static void setKorting(Integer korting) {
+    public static void setKorting(Double korting) {
         Particulier.korting = korting;
     }
-
-    private static Integer korting = 5;
     public Particulier(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip) {
         super(naam, achternaam, email, telefoonNummer, schip);
     }

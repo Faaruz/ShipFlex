@@ -53,28 +53,28 @@ public class Admin {
             case 1:
                 System.out.printf("De korting voor particulier is op dit moment: %d%n", Particulier.getKorting());
                 System.out.println("Voer een nieuwe korting in voor particulier:");
-                int nieuweKortingParticulier = scanner.nextInt();
+                Double nieuweKortingParticulier = scanner.nextDouble();
                 Particulier.setKorting(nieuweKortingParticulier);
                 System.out.printf("De korting voor particulier is gewijzigd naar: %d%n", Particulier.getKorting());
                 break;
             case 2:
                 System.out.printf("De korting voor zakelijk is op dit moment: %d%n", Zakelijk.getKorting());
                 System.out.println("Voer een nieuwe korting in voor zakelijk:");
-                int nieuweKortingZakelijk = scanner.nextInt();
+                Double nieuweKortingZakelijk = scanner.nextDouble();
                 Zakelijk.setKorting(nieuweKortingZakelijk);
                 System.out.printf("De korting voor zakelijk is gewijzigd naar: %d%n", Zakelijk.getKorting());
                 break;
             case 3:
                 System.out.printf("De korting voor overheid is op dit moment: %d%n", Overheid.getKorting());
                 System.out.println("Voer een nieuwe korting in voor overheid:");
-                int nieuweKortingOverheid = scanner.nextInt();
+                Double nieuweKortingOverheid = scanner.nextDouble();
                 Overheid.setKorting(nieuweKortingOverheid);
                 System.out.printf("De korting voor overheid is gewijzigd naar: %d%n", Overheid.getKorting());
                 break;
             case 4:
                 System.out.printf("De korting voor %s is op dit moment: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
                 System.out.printf("Voer een nieuwe korting in voor %s:", NieuwKlantType.getNieuwKlantTypeNaam());
-                int nieuweKortingNieuwKlantType = scanner.nextInt();
+                Double nieuweKortingNieuwKlantType = scanner.nextDouble();
                 NieuwKlantType.korting = nieuweKortingNieuwKlantType;
                 System.out.printf("De korting voor %s is gewijzigd naar: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
                 break;
@@ -95,7 +95,7 @@ public class Admin {
         String naam = scanner.nextLine();
         NieuwKlantType.setNieuwKlantTypeNaam(naam);
         System.out.println("Voer het kortingspercentage van het nieuwe klanttype in:");
-        Integer korting = scanner.nextInt();
+        Double korting = scanner.nextDouble();
         scanner.nextLine();
         NieuwKlantType.korting = korting;
         NieuwKlantType.setNieuwKlantTypeBestaat(true);

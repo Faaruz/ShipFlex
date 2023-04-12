@@ -16,13 +16,15 @@ public class Offerte {
         banner.printBannerOfferte();
         System.out.println();
         banner.printDivider();
-
+        System.out.println("Type klant: " + klant.getKlantType());
         System.out.println("Offerte voor: " + klant.getNaam() + " " + klant.getAchternaam());
         System.out.println("Emailadres: " + klant.getEmail());
         System.out.println("Telefoonnummer: " + klant.getTelefoonNummer());
-        System.out.println("Bedrijf: " + klant.getBedrijfsnaam());
-        System.out.println("Overheid: " + klant.getOverheid());
-
+        if(klant.getKlantType().equals("Zakelijk")) {
+            System.out.println("Bedrijf: " + klant.getBedrijfsnaam());
+        } else if (klant.getKlantType().equals("Overheid")) {
+            System.out.println("Overheid: " + klant.getOverheid());
+        }
         System.out.println("Gekozen Schip: " + "Gekozen Schip");
         banner.printDivider();
         System.out.println("Onderdelen:");
@@ -37,6 +39,21 @@ public class Offerte {
         }
 
         banner.printDivider();
+        // Op deze regel moet de klant korting aftrokken worden van de totaalprijs
+        if(klant.getKlantType().equals("Particulier")) {
+            System.out.println("Prijs na aftrek klant korting: " + (totaalPrijs -(totaalPrijs * (Particulier.getKorting()/100))));
+        }
+        else if(klant.getKlantType().equals("Zakelijk")) {
+            System.out.println("Prijs na aftrek klant korting: " + ((totaalPrijs -(totaalPrijs * (Zakelijk.getKorting())))));
+        }
+        else if(klant.getKlantType().equals("Overheid")) {
+            System.out.println("Prijs na aftrek klant korting: " + (totaalPrijs / Overheid.getKorting()));
+        }
+        else if(klant.getKlantType().equals(NieuwKlantType.getNieuwKlantTypeNaam())) {
+            System.out.println("Prijs na aftrek klant korting: " + (totaalPrijs / Overheid.getKorting()));
+        }
+
+
         System.out.println("Prijs zonder BTW: " + (totaalPrijs * 0.80));
 
         System.out.println("Totaalprijs: " + totaalPrijs);

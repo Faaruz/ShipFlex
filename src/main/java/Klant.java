@@ -9,7 +9,17 @@ abstract class Klant {
     private String email;
     private Integer telefoonNummer;
     private Schip schip;
-    //private Hulpmenu Klanthulpmenu;
+
+    public String getKlantType() {
+        return klantType;
+    }
+
+    public void setKlantType(String klantType) {
+        this.klantType = klantType;
+    }
+
+    private String klantType;
+
     Scanner scanner = new Scanner(System.in);
     Banner banner = new Banner();
 
@@ -21,7 +31,9 @@ abstract class Klant {
         this.telefoonNummer = telefoonNummer;
         this.schip = schip;
     }
-
+    public Klant(String klantType){
+        this.klantType= klantType;
+    }
     public String getNaam() {
         return naam;
     }

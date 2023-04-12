@@ -1,16 +1,16 @@
 class Overheid extends Klant{
-    private static Integer korting = 15;
+    private static Double korting = 15.0;
     private String overheid;
     public Overheid(String naam, String achternaam, String email, Integer telefoonNummer, String overheid, Schip schip) {
         super(naam, achternaam, email, telefoonNummer, schip);
         this.overheid = overheid;
     }
 
-    public static Integer getKorting() {
+    public static Double getKorting() {
         return korting;
     }
 
-    public static void setKorting(Integer korting) {
+    public static void setKorting(Double korting) {
         Overheid.korting = korting;
     }
 

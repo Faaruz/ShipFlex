@@ -1,12 +1,12 @@
 class Zakelijk extends Klant{
-    private static Integer korting = 10;
+    private static Double korting = 10.0;
     private String bedrijfsnaam;
 
-    public static Integer getKorting() {
+    public static Double getKorting() {
         return korting;
     }
 
-    public static void setKorting(Integer korting) {
+    public static void setKorting(Double korting) {
         Zakelijk.korting = korting;
     }
 

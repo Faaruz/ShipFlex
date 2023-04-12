@@ -1,10 +1,10 @@
 public class NieuwKlantType extends Klant{
     private String naamType;
 
-    public static Integer korting = 0;
+    public static Double korting = 0.0;
     private static String NieuwKlantTypeNaam= "Custom KlantType";
     private static boolean NieuwKlantTypeBestaat=false;
-    public NieuwKlantType(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, Integer korting) {
+    public NieuwKlantType(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, Double korting) {
         super(naam, achternaam, email, telefoonNummer, schip);
         this.korting = korting;
     }
@@ -30,7 +30,7 @@ public class NieuwKlantType extends Klant{
         NieuwKlantTypeNaam = naam;
     }
 
-    public static Integer getKorting() {
+    public static Double getKorting() {
         return korting;
     }
 
