@@ -2,6 +2,8 @@ public class Frame extends Onderdeel {
     private int hoogte;
     private int breedte;
 
+    public static double prijs;
+
     public Frame(String naam, String beschrijving, double prijs, int hoogte, int breedte) {
         super(naam, beschrijving, prijs);
         this.hoogte = hoogte;

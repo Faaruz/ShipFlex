@@ -7,6 +7,16 @@ public class Onderdeel {
     private double korting;
     public static ArrayList<Onderdeel> onderdelen = new ArrayList<>();
 
+        static {
+            Onderdeel frame = new Frame("frame", "test", 100, 10, 10);
+            Onderdeel motor = new Motor("motor", "test" , 100, 10, 10);
+            Onderdeel roer = new Roer("roer", "test", 100, 10, 10);
+
+            Onderdeel.onderdelen.add(frame);
+            Onderdeel.onderdelen.add(motor);
+            Onderdeel.onderdelen.add(roer);
+        }
+
     Onderdeel(String naam, String beschrijving, double prijs) {
         this.naam = naam;
         this.beschrijving = beschrijving;

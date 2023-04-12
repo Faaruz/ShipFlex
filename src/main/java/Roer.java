@@ -1,6 +1,7 @@
 public class Roer extends Onderdeel {
     private int draaivermogen;
 
+    public static double prijs;
 
     public Roer(String naam, String beschrijving, double prijs, int draaivermogen) {
         super(naam, beschrijving, prijs);

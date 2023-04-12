@@ -5,9 +5,44 @@ import java.util.Scanner;
  */
 public class Admin {
 
-    public static void wijzigPrijs(){
+    public void wijzigPrijs() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Selecteer het onderdeel waarvan u de prijs wil wijzigen:");
 
+        // Loop over the Onderdeel objects and print their names as options
+        for (int i = 0; i < Onderdeel.onderdelen.size(); i++) {
+            System.out.printf("%d: %s%n", i + 1, Onderdeel.onderdelen.get(i).getNaam());
+        }
+
+        System.out.printf("%d: Klaar%n", Onderdeel.onderdelen.size() + 1);
+
+        int selectie = scanner.nextInt();
+
+        // Check if the user selected "Klaar" (i.e., the last option)
+        if (selectie == Onderdeel.onderdelen.size() + 1) {
+            System.out.println("Klaar met prijzen wijzigen.");
+            return;
+        }
+
+        // Get the selected Onderdeel object based on the user's input
+        Onderdeel selectedOnderdeel = Onderdeel.onderdelen.get(selectie - 1);
+
+        // Print the current price of the selected Onderdeel
+        System.out.printf("De prijs voor %s is op dit moment: %s", selectedOnderdeel.getNaam(), selectedOnderdeel.getPrijs());
+        System.out.println("");
+        // Prompt the user to enter a new price for the selected Onderdeel
+        System.out.printf("Voer een nieuwe prijs in voor %s:%n", selectedOnderdeel.getNaam());
+        int nieuwePrijs = scanner.nextInt();
+
+        // Update the price of the selected Onderdeel
+        selectedOnderdeel.setPrijs(nieuwePrijs);
+
+        // Print the updated price of the selected Onderdeel
+        System.out.printf("De prijs voor %s is gewijzigd naar: %s", selectedOnderdeel.getNaam(), selectedOnderdeel.getPrijs());
+
+        printAdminMenu();
     }
+
 
     public void wijzigKorting(){
         Scanner scanner = new Scanner(System.in);
@@ -53,7 +88,7 @@ public class Admin {
                 break;
         }
     }
-    public  void voegNieuwKlantTypeToe(){
+    public void voegNieuwKlantTypeToe(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Voer de naam van het nieuwe klanttype in:");
@@ -83,6 +118,8 @@ public class Admin {
 
         Onderdeel nieuwOnderdeel = new Onderdeel(naam, beschrijving, prijs, korting);
         Onderdeel.onderdelen.add(nieuwOnderdeel);
+        Admin admin = new Admin();
+        admin.printAdminMenu();
     }
     Banner banner = new Banner();
     public void printAdminMenu(){
@@ -91,6 +128,7 @@ public class Admin {
         System.out.println("2. Custom KlantType aanmaken");
         System.out.println("3. Custom Onderdeel aanmaken");
         System.out.println("4. korting per klanttype wijzigen");
+        System.out.println("5. prijs per onderdeel wijzigen");
         System.out.println("13. Afsluiten");
         banner.printDivider();
         System.out.println("Maak een keuze: ");
@@ -108,7 +146,9 @@ public class Admin {
             case "4":
                 wijzigKorting();
                 break;
-            //andere cases komen hier
+            case "5":
+                wijzigPrijs();
+                break;
             case "13":
                 printAdminMenu();
                 break;

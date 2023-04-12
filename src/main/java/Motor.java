@@ -1,6 +1,7 @@
 public class Motor extends Onderdeel {
     private double vermogen;
 
+    public static double prijs;
 
     public Motor(String naam, String beschrijving, double prijs, double vermogen) {
         super(naam, beschrijving, prijs);
