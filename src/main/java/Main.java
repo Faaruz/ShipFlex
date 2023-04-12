@@ -60,6 +60,7 @@ class Main {
                 break;
             case "4":
                 if (NieuwKlantType.getNieuwKlantTypeBestaat()) {
+                    System.out.println();
                     System.out.printf("Welkom %s, voer uw voornaam in:", NieuwKlantType.getNieuwKlantTypeNaam());
                     naam = scanner.nextLine();
                     System.out.println("Voer uw achternaam in:");
@@ -68,7 +69,7 @@ class Main {
                     email = scanner.nextLine();
                     System.out.println("Voer uw telefoonnummer in:");
                     telefoonNummer = scanner.nextInt();
-                    NieuwKlantType customKlantType = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null);
+                    NieuwKlantType customKlantType = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null, 10);
                 } else {
                     System.out.println("Er bestaat nog geen Custom KlantType. Als u admin privileges hebt kunt u Custom KlantTypes aanmaken in het admin menu.");
                     printKlantOpties();

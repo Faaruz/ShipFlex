@@ -1,11 +1,12 @@
 public class NieuwKlantType extends Klant{
     private String naamType;
 
-    private static Integer korting = 0;
+    public static Integer korting = 0;
     private static String NieuwKlantTypeNaam= "Custom KlantType";
     private static boolean NieuwKlantTypeBestaat=false;
-    public NieuwKlantType(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip) {
+    public NieuwKlantType(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, Integer korting) {
         super(naam, achternaam, email, telefoonNummer, schip);
+        this.korting = korting;
     }
     @Override
     String getOverheid() {
@@ -33,9 +34,6 @@ public class NieuwKlantType extends Klant{
         return korting;
     }
 
-    public static void setKorting(Integer korting) {
-        korting = korting;
-    }
 
     public static boolean getNieuwKlantTypeBestaat() {
         return NieuwKlantTypeBestaat;

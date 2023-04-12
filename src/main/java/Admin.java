@@ -10,9 +10,12 @@ public class Admin {
     public static void wijzigPrijs(){
 
     }
-    public static void wijzigKorting(){
+
+//    public NieuwKlantType nieuwKlantType = new NieuwKlantType("Nieuw", "Klanttype", "test@gmail.com", 0 , null, 10);
+    public void wijzigKorting(){
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Selecteer het klanttype waarvan u de korting wil wijzigen: %n1: Particulier%n2: Zakelijk%n3: Overheid%n4: %s %n5: Klaar%n", NieuwKlantType.getNieuwKlantTypeNaam());
+
         int Selectie = scanner.nextInt();
         switch(Selectie){
             case 1:
@@ -40,7 +43,7 @@ public class Admin {
                 System.out.printf("De korting voor %s is op dit moment: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
                 System.out.printf("Voer een nieuwe korting in voor %s:", NieuwKlantType.getNieuwKlantTypeNaam());
                 int nieuweKortingNieuwKlantType = scanner.nextInt();
-                NieuwKlantType.setKorting(nieuweKortingNieuwKlantType);
+                NieuwKlantType.korting = nieuweKortingNieuwKlantType;
                 System.out.printf("De korting voor %s is gewijzigd naar: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
                 break;
             case 5:
@@ -53,7 +56,7 @@ public class Admin {
                 break;
         }
     }
-    public static void voegNieuwKlantTypeToe(){
+    public  void voegNieuwKlantTypeToe(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Voer de naam van het nieuwe klanttype in:");
@@ -62,7 +65,7 @@ public class Admin {
         System.out.println("Voer het kortingspercentage van het nieuwe klanttype in:");
         Integer korting = scanner.nextInt();
         scanner.nextLine();
-        NieuwKlantType.setKorting(korting);
+        NieuwKlantType.korting = korting;
         NieuwKlantType.setNieuwKlantTypeBestaat(true);
         System.out.println("Het nieuwe klanttype is succesvol aangemaakt!");
         Banner banner = new Banner();
