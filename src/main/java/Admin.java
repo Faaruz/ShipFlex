@@ -135,7 +135,7 @@ public class Admin {
         String antwoord = scanner.nextLine().toUpperCase();
         switch (antwoord){
             case "1":
-                Main.printKlantOpties();
+               Main.printKlantOpties();
                 break;
             case "2":
                 voegNieuwKlantTypeToe();
@@ -150,7 +150,7 @@ public class Admin {
                 wijzigPrijs();
                 break;
             case "13":
-                printAdminMenu();
+                System.exit(1);
                 break;
             default:
                 System.out.println("Foutmelding. Voer een geldig antwoord in.");

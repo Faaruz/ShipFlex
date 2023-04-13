@@ -24,12 +24,13 @@ abstract class Klant {
     Banner banner = new Banner();
 
 
-    public Klant(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip) {
+    public Klant(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, String klantType) {
         this.naam = naam;
         this.achternaam = achternaam;
         this.email = email;
         this.telefoonNummer = telefoonNummer;
         this.schip = schip;
+        this.klantType = klantType;
     }
     public Klant(String klantType){
         this.klantType= klantType;

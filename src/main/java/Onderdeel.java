@@ -117,7 +117,7 @@ public class Onderdeel {
 
             System.out.println("Type het nummer van het onderdeel dat je wilt toevoegen aan Schip");
             int keuze = scanner.nextInt();
-            scanner.nextLine(); // consumeer resterende newline
+            scanner.nextLine();
 
             if (keuze >= 1 && keuze <= onderdelenPerTypeList.size()) {
                 Onderdeel geselecteerdOnderdeel = onderdelenPerTypeList.get(keuze - 1);
@@ -202,7 +202,7 @@ public class Onderdeel {
     }
 
 
-    public ArrayList<Onderdeel> getOnderdelen() {
+public ArrayList<Onderdeel> getOnderdelen() {
         return onderdelen;
     }
 }

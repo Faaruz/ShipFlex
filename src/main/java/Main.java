@@ -33,7 +33,7 @@ class Main {
                 email = scanner.nextLine();
                 System.out.println("Voer uw telefoonnummer in:");
                 telefoonNummer = scanner.nextInt();
-                klant = new Particulier(naam, achternaam, email, telefoonNummer, null);
+                klant = new Particulier(naam, achternaam, email, telefoonNummer, null, "particulier");
                 klant.setKlantType("Particulier");
                 break;
             case "2":
@@ -48,7 +48,7 @@ class Main {
                 System.out.println("Voer de naam van uw bedrijf in:");
                 scanner.nextLine();
                 bedrijf = scanner.nextLine();
-                klant = new Zakelijk(naam, achternaam, email, telefoonNummer, bedrijf, null);
+                klant = new Zakelijk(naam, achternaam, email, telefoonNummer, bedrijf, null, "zakelijk");
                 klant.setKlantType("Zakelijk");
                 break;
             case "3":
@@ -63,7 +63,7 @@ class Main {
                 System.out.println("Voer de naam van uw overheid in:");
                 scanner.nextLine();
                 overheidNaam = scanner.nextLine();
-                klant = new Overheid(naam, achternaam, email, telefoonNummer, overheidNaam, null);
+                klant = new Overheid(naam, achternaam, email, telefoonNummer, overheidNaam, null, "overheid");
                 klant.setKlantType("Overheid");
                 break;
             case "4":
@@ -77,7 +77,7 @@ class Main {
                     email = scanner.nextLine();
                     System.out.println("Voer uw telefoonnummer in:");
                     telefoonNummer = scanner.nextInt();
-                    klant = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null, 10.0);
+                    klant = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null, 10.0, NieuwKlantType.getNieuwKlantTypeNaam());
                     klant.setKlantType(NieuwKlantType.getNieuwKlantTypeNaam());
                 } else {
                     System.out.println("Er bestaat nog geen Custom KlantType. Als u admin privileges hebt kunt u Custom KlantTypes aanmaken in het admin menu.");
@@ -97,7 +97,7 @@ class Main {
             banner.printDivider();
             printSpeedbootOpties();
             printNietEssentieleOpties();
-            Offerte offerte = new Offerte(klant, onderdelen.getOnderdelen());
+            Offerte offerte = new Offerte(klant);
             offerte.printOfferte();
         }
     }

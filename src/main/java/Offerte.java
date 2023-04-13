@@ -3,13 +3,10 @@ import java.util.ArrayList;
 public class Offerte {
     Banner banner = new Banner();
     private Klant klant;
-    private ArrayList<Onderdeel> onderdeel;
-
     public static ArrayList<Onderdeel> gekozenOnderdelen = new ArrayList<Onderdeel>();
 
-    public Offerte(Klant klant, ArrayList<Onderdeel> onderdeel) {
+    public Offerte(Klant klant) {
         this.klant = klant;
-        this.onderdeel = onderdeel;
     }
 
     public void printOfferte() {

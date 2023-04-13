@@ -10,8 +10,8 @@ class Zakelijk extends Klant{
         Zakelijk.korting = korting;
     }
 
-    public Zakelijk(String naam, String achternaam, String email, Integer telefoonNummer, String bedrijfsnaam, Schip schip) {
-        super(naam, achternaam, email, telefoonNummer, schip);
+    public Zakelijk(String naam, String achternaam, String email, Integer telefoonNummer, String bedrijfsnaam, Schip schip, String klantType) {
+        super(naam, achternaam, email, telefoonNummer, schip, klantType);
         this.bedrijfsnaam = bedrijfsnaam;
     }
     @Override
