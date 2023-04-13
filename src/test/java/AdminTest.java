@@ -6,7 +6,7 @@ public class AdminTest{
     @Test
     public void testWijzigKorting() {
         //arrange
-        Particulier particulier = new Particulier("Test","van Test","test@gmail.com", 23, new Schip("speedboat"));
+        Particulier particulier = new Particulier("Test","van Test","test@gmail.com", 23, new Schip("speedboat"), "particulier");
         //act
         Particulier.setKorting(20.0);
         //assert

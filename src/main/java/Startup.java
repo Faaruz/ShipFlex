@@ -38,6 +38,7 @@ class Startup {
             case 13:
                 //debug
                 System.out.println(ANSI_RED + "AFGESLOTEN " + ANSI_RESET);
+                System.exit(1);
                 break;
             default:
                 System.out.println("Geen geldige invoer!");

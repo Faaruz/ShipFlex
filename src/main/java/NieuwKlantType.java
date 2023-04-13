@@ -4,8 +4,8 @@ public class NieuwKlantType extends Klant{
     public static Double korting = 0.0;
     private static String NieuwKlantTypeNaam= "Custom KlantType";
     private static boolean NieuwKlantTypeBestaat=false;
-    public NieuwKlantType(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, Double korting) {
-        super(naam, achternaam, email, telefoonNummer, schip);
+    public NieuwKlantType(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, Double korting, String klantType) {
+        super(naam, achternaam, email, telefoonNummer, schip, klantType);
         this.korting = korting;
     }
     @Override
