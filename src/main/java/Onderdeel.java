@@ -15,16 +15,16 @@ public class Onderdeel {
     public static ArrayList<Onderdeel> nietEssentieleOnderdelen = new ArrayList<>();
 
         static {
-            Onderdeel basisFrame = new Frame("basisFrame", "test", 100, 10, 10);
-            Onderdeel basisMotor = new Motor("basisMotor", "test" , 100, 10, 10);
-            Onderdeel basisRoer = new Roer("basisRoer", "test", 100, 10, 10);
-            Onderdeel luxeFrame = new Frame("luxeFrame", "test", 300, 15, 12);
-            Onderdeel luxeMotor = new Motor("luxeMotor", "test" , 300, 10, 12);
-            Onderdeel luxeRoer = new Roer("luxeRoer", "test", 300, 10, 15);
+            Onderdeel basisFrame = new Frame("basisFrame", "test", 1000, 10, 10);
+            Onderdeel basisMotor = new Motor("basisMotor", "test" , 1000,  10);
+            Onderdeel basisRoer = new Roer("basisRoer", "test", 1000,  10);
+            Onderdeel luxeFrame = new Frame("luxeFrame", "test", 3000, 15, 12);
+            Onderdeel luxeMotor = new Motor("luxeMotor", "test" , 3000,  12);
+            Onderdeel luxeRoer = new Roer("luxeRoer", "test", 3000, 15);
 
-            Onderdeel airco = new Onderdeel("airco", "ingebouwde airco in de kabine van het schip", 150);
-            Onderdeel radio = new Onderdeel("radio", "ingebouwde radio in de kabine van het schip", 200);
-            Onderdeel sonar = new Onderdeel("sonar", "ingebouwde sonar in de kabine van het schip", 375);
+            Onderdeel airco = new Onderdeel("airco", "ingebouwde airco in de kabine van het schip", 300);
+            Onderdeel radio = new Onderdeel("radio", "ingebouwde radio in de kabine van het schip", 400);
+            Onderdeel sonar = new Onderdeel("sonar", "ingebouwde sonar in de kabine van het schip", 700);
 
             Onderdeel.onderdelen.add(basisFrame);
             Onderdeel.onderdelen.add(basisMotor);
