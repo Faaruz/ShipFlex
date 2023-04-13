@@ -10,6 +10,8 @@ abstract class Klant {
     private Integer telefoonNummer;
     private Schip schip;
 
+    private Double korting;
+
     public String getKlantType() {
         return klantType;
     }
@@ -24,17 +26,16 @@ abstract class Klant {
     Banner banner = new Banner();
 
 
-    public Klant(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, String klantType) {
+    public Klant(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, Double korting, String klantType) {
         this.naam = naam;
         this.achternaam = achternaam;
         this.email = email;
         this.telefoonNummer = telefoonNummer;
         this.schip = schip;
+        this.korting = korting;
         this.klantType = klantType;
     }
-    public Klant(String klantType){
-        this.klantType= klantType;
-    }
+
     public String getNaam() {
         return naam;
     }

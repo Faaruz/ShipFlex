@@ -7,8 +7,8 @@ class Particulier extends Klant{
     public static void setKorting(Double korting) {
         Particulier.korting = korting;
     }
-    public Particulier(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, String klantType) {
-        super(naam, achternaam, email, telefoonNummer, schip, klantType);
+    public Particulier(String naam, String achternaam, String email, Integer telefoonNummer, Schip schip, Double korting, String klantType) {
+        super(naam, achternaam, email, telefoonNummer, schip, korting, klantType);
     }
     @Override
     String getOverheid() {

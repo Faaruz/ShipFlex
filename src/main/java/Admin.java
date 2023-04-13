@@ -51,32 +51,52 @@ public class Admin {
         int Selectie = scanner.nextInt();
         switch(Selectie){
             case 1:
-                System.out.printf("De korting voor particulier is op dit moment: %d%n", Particulier.getKorting());
+                System.out.printf("De korting voor particulier is op dit moment: %s", Particulier.getKorting());
                 System.out.println("Voer een nieuwe korting in voor particulier:");
                 Double nieuweKortingParticulier = scanner.nextDouble();
                 Particulier.setKorting(nieuweKortingParticulier);
-                System.out.printf("De korting voor particulier is gewijzigd naar: %d%n", Particulier.getKorting());
+                System.out.printf("De korting voor particulier is gewijzigd naar: %s", Particulier.getKorting());
+                System.out.println();
+                Main.printKlantOpties();
                 break;
             case 2:
-                System.out.printf("De korting voor zakelijk is op dit moment: %d%n", Zakelijk.getKorting());
+                System.out.printf("De korting voor zakelijk is op dit moment: %s", Zakelijk.getKorting());
+                System.out.println();
                 System.out.println("Voer een nieuwe korting in voor zakelijk:");
                 Double nieuweKortingZakelijk = scanner.nextDouble();
                 Zakelijk.setKorting(nieuweKortingZakelijk);
-                System.out.printf("De korting voor zakelijk is gewijzigd naar: %d%n", Zakelijk.getKorting());
+                System.out.printf("De korting voor zakelijk is gewijzigd naar: %s", Zakelijk.getKorting());
+                System.out.println();
+                Main.printKlantOpties();
                 break;
             case 3:
-                System.out.printf("De korting voor overheid is op dit moment: %d%n", Overheid.getKorting());
+                System.out.printf("De korting voor overheid is op dit moment: %s", Overheid.getKorting());
                 System.out.println("Voer een nieuwe korting in voor overheid:");
                 Double nieuweKortingOverheid = scanner.nextDouble();
                 Overheid.setKorting(nieuweKortingOverheid);
-                System.out.printf("De korting voor overheid is gewijzigd naar: %d%n", Overheid.getKorting());
+                System.out.printf("De korting voor overheid is gewijzigd naar: %s", Overheid.getKorting());
+                System.out.println();
+                Main.printKlantOpties();
                 break;
             case 4:
-                System.out.printf("De korting voor %s is op dit moment: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
-                System.out.printf("Voer een nieuwe korting in voor %s:", NieuwKlantType.getNieuwKlantTypeNaam());
-                Double nieuweKortingNieuwKlantType = scanner.nextDouble();
-                NieuwKlantType.korting = nieuweKortingNieuwKlantType;
-                System.out.printf("De korting voor %s is gewijzigd naar: %d%n", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
+                if (!NieuwKlantType.getNieuwKlantTypeBestaat()){
+                    System.out.println("Er is nog geen nieuw klanttype aangemaakt");
+                        System.out.println("U bent terug gebracht naar het admin menu");
+                        banner.printDivider();
+                        Admin admin = new Admin();
+                        admin.printAdminMenu();
+
+                } else {
+                    System.out.printf("De korting voor %s is op dit moment: %s", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
+                    System.out.println();
+                    System.out.printf("Voer een nieuwe korting in voor %s:", NieuwKlantType.getNieuwKlantTypeNaam());
+                    Double nieuweKortingNieuwKlantType = scanner.nextDouble();
+                    NieuwKlantType.korting = nieuweKortingNieuwKlantType;
+                    System.out.printf("De korting voor %s is gewijzigd naar: %s1" +
+                            "", NieuwKlantType.getNieuwKlantTypeNaam(), NieuwKlantType.getKorting());
+                    System.out.println();
+                }
+                Main.printKlantOpties();
                 break;
             case 5:
                 System.out.println("U bent terug gebracht naar het admin menu");
@@ -104,6 +124,9 @@ public class Admin {
         banner.printDivider();
         Admin admin = new Admin();
         admin.printAdminMenu();
+
+
+
     }
     public static void voegOnderdeelToe(){
         System.out.println("Voer de naam van het nieuwe onderdeel in:");

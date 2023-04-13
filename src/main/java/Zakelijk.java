@@ -1,5 +1,5 @@
 class Zakelijk extends Klant{
-    private static Double korting = 10.0;
+    public static Double korting = 10.0;
     private String bedrijfsnaam;
 
     public static Double getKorting() {
@@ -10,8 +10,8 @@ class Zakelijk extends Klant{
         Zakelijk.korting = korting;
     }
 
-    public Zakelijk(String naam, String achternaam, String email, Integer telefoonNummer, String bedrijfsnaam, Schip schip, String klantType) {
-        super(naam, achternaam, email, telefoonNummer, schip, klantType);
+    public Zakelijk(String naam, String achternaam, String email, Integer telefoonNummer, String bedrijfsnaam, Schip schip, Double korting, String klantType) {
+        super(naam, achternaam, email, telefoonNummer, schip, korting,klantType);
         this.bedrijfsnaam = bedrijfsnaam;
     }
     @Override

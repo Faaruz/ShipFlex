@@ -33,7 +33,7 @@ class Main {
                 email = scanner.nextLine();
                 System.out.println("Voer uw telefoonnummer in:");
                 telefoonNummer = scanner.nextInt();
-                klant = new Particulier(naam, achternaam, email, telefoonNummer, null, "particulier");
+                klant = new Particulier(naam, achternaam, email, telefoonNummer, null, Particulier.korting, "particulier");
                 klant.setKlantType("Particulier");
                 break;
             case "2":
@@ -48,7 +48,7 @@ class Main {
                 System.out.println("Voer de naam van uw bedrijf in:");
                 scanner.nextLine();
                 bedrijf = scanner.nextLine();
-                klant = new Zakelijk(naam, achternaam, email, telefoonNummer, bedrijf, null, "zakelijk");
+                klant = new Zakelijk(naam, achternaam, email, telefoonNummer, bedrijf, null, Zakelijk.korting, "zakelijk");
                 klant.setKlantType("Zakelijk");
                 break;
             case "3":
@@ -63,7 +63,7 @@ class Main {
                 System.out.println("Voer de naam van uw overheid in:");
                 scanner.nextLine();
                 overheidNaam = scanner.nextLine();
-                klant = new Overheid(naam, achternaam, email, telefoonNummer, overheidNaam, null, "overheid");
+                klant = new Overheid(naam, achternaam, email, telefoonNummer, overheidNaam, null, Overheid.korting,"overheid");
                 klant.setKlantType("Overheid");
                 break;
             case "4":
@@ -77,7 +77,7 @@ class Main {
                     email = scanner.nextLine();
                     System.out.println("Voer uw telefoonnummer in:");
                     telefoonNummer = scanner.nextInt();
-                    klant = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null, 10.0, NieuwKlantType.getNieuwKlantTypeNaam());
+                    klant = new NieuwKlantType(naam, achternaam, email, telefoonNummer, null, NieuwKlantType.korting, NieuwKlantType.klantType);
                     klant.setKlantType(NieuwKlantType.getNieuwKlantTypeNaam());
                 } else {
                     System.out.println("Er bestaat nog geen Custom KlantType. Als u admin privileges hebt kunt u Custom KlantTypes aanmaken in het admin menu.");
@@ -92,17 +92,48 @@ class Main {
     private static void printSchipOpties(){
         Scanner scanner = new Scanner(System.in);
         Onderdeel onderdelen = new Onderdeel();
-        System.out.printf(ANSI_RED + "Selecteer schiptype: "+ ANSI_RESET + "%n1: SpeedBoot%n");
-        if(scanner.nextLine().equals("1")){
+        System.out.printf(ANSI_RED + "Selecteer schiptype: "+ ANSI_RESET + "%n1: SpeedBoot%n" + "2: Zeilboot%n" + "3: Jacht%n" );
+        String schipType = scanner.nextLine();
+        if(schipType.equals("1")){
+            Offerte.gekozenSchip = "Speedboot";
             banner.printDivider();
             printSpeedbootOpties();
             printNietEssentieleOpties();
             Offerte offerte = new Offerte(klant);
             offerte.printOfferte();
+        } else if (schipType.equals("2")) {
+            Offerte.gekozenSchip = "Zeilboot";
+            banner.printDivider();
+            printZeilbootOpties();
+            printNietEssentieleOpties();
+            Offerte offerte = new Offerte(klant);
+            offerte.printOfferte();
+        } else if (schipType.equals("3")) {
+            Offerte.gekozenSchip = "Jacht";
+            banner.printDivider();
+            printJachtOpties();
+            printNietEssentieleOpties();
+            Offerte offerte = new Offerte(klant);
+            offerte.printOfferte();
+        } else {
+            System.out.println("Foutmelding. Voer een geldig antwoord in.");
+            printSchipOpties();
         }
     }
 
     private static void printSpeedbootOpties(){
+        Onderdeel onderdelen = new Onderdeel();
+        System.out.println(ANSI_RED + "Kies essentiele opties: " + ANSI_RESET);
+        onderdelen.printOnderdelen();
+    }
+
+    private static void printZeilbootOpties(){
+        Onderdeel onderdelen = new Onderdeel();
+        System.out.println(ANSI_RED + "Kies essentiele opties: " + ANSI_RESET);
+        onderdelen.printOnderdelen();
+    }
+
+    private static void printJachtOpties(){
         Onderdeel onderdelen = new Onderdeel();
         System.out.println(ANSI_RED + "Kies essentiele opties: " + ANSI_RESET);
         onderdelen.printOnderdelen();
