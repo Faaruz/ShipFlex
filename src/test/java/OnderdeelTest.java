@@ -21,8 +21,12 @@ class OnderdeelTest {
 
     @Test
     public void OnderdeelTest() {
+        //maakt onderdeel objecten aan
         Onderdeel frame = new Frame("basisFrame", "frame van het schip", 10000.0,  100, 1000);
+        //test of de constructor chaining ook werkt
         Onderdeel motor = new Motor("basisMotor", "motor van het schip", 10000.0, 0.1,   100);
+
+        //test of de getters werken
         assert (motor.getNaam().equals("basisMotor"));
         assert (motor.getMilieuKorting() == 0.1);
         motor.setMilieuKorting(0.2);
@@ -38,10 +42,14 @@ class OnderdeelTest {
 
     @Test
     public void SchipTest() {
+        //maakt schip object aan
         Schip schip = new Schip("schip");
+        //test of de getters werken
         assert(schip.getNaam().equals("schip"));
+        //test of de setters werken
         Frame frame = new Frame("basisFrame", "frame van het schip", 10000.0,  100, 1000);
         schip.addOnderdeel(frame);
+        //test of de addOnderdeel() methode en getOnderdeel methode werkt
         assert(schip.getOnderdelen().size() == 1);
         Motor motor = new Motor("basisMotor", "motor van het schip", 10000.0,  100);
         schip.addOnderdeel(motor);
