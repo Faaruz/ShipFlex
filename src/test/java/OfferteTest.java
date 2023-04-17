@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-
+//Deze junit test controleert of de prijs van onderdeel 1 in de array onderdelen op correcte wijze wordt geïnitialiseerd.
 public class OfferteTest {
 
     @Test

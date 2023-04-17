@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
+//Deze Junit test controleert of de WijzigKorting methode uit de Admin klasse de double Korting
+// in de Particulier klasse kan aanpassen dmv getters en setters.
 
 public class AdminTest{
     @Test
